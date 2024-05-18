@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Setting up client config file
 include stdlib
 
