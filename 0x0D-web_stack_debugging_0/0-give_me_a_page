@@ -1,5 +1,0 @@
-#!/usr/env bash
-#run Apache on designated holberton container
-
-echo "ServerName localhost" >> /ect/apache2.conf
-service apache2 start
