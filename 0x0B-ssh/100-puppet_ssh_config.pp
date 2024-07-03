@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # using puppet to make to configuration file
+include stdlib
 
-file { 'etc/ssh/ssh_cofig':
-	ensure => present,
+file_line { 'NO passwd':
+  ensure => present,
+  path => '/etc/ssh/ssh_config',
+  line => '     PasswordAuthentication no',
+  replace => true,
+}
 
 
-content =>"
-
-	#SSH client configuration
-	host*
-	IdentityFile ~/.ssh/school
-	PasswordAuthentication no
-	",
-
+file_line { 'Private key holder':
+  ensure => present,
+  path => '/etc/ssh/ssh_config',
+  line => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
